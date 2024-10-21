@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Register</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+
+<body>
+    <div class="register-container">
+        <h1>Telegram Register</h1>
+        <form class="register-form" id="form1">
+            <div class="input-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" value="+998 " required>
+            </div>
+            <div class="profile-picture-container">
+                <div class="colorize">
+                    <label for="fileInput" class="custom-file-upload">Choose a Profile Picture</label>
+                </div>
+                <div class="image-preview" id="imagePreview">
+                    <img src="" alt="Profile Picture" class="image-preview__image" />
+                    <span class="image-preview__default-text">No Image</span>
+                </div>
+                <input type="file" id="fileInput" class="input" accept="image/*" />
+            </div>
+            <button type="submit" class="register-btn">Register</button>
+        </form>
+    </div>
+</body>
+<script src="./script.js"></script>
+</html>

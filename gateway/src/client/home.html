@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-header-top">
+                    <!-- <a href="./settings.html"><img id="profileImage" src="./images/totoy_bola.jpg" alt="User Icon" class="user-icon"></a> -->
+                    <button id="open_settings"><img id="profilePic" src="./images/totoy_bola.jpg" alt="User Icon"
+                            class="user-icon"></button>
+                    <input type="text" placeholder="Search" class="search-bar">
+                    <div class="settings-container" id="settings-container">
+                        <div class="settings-modal">
+                            <div class="settings">
+                                <h4>Settings</h4>
+                                <div class="back">
+                                    <a href=""><img src="./images/edit.svg" alt=""></a>
+                                    <!-- <a href="./home.html"><img src="./images/211652_close_icon.svg" alt="back"></a> -->
+                                    <button id="close_settings"><img src="./images/211652_close_icon.svg"
+                                            alt="back"></button>
+                                </div>
+                            </div>
+                            <div class="profile-section">
+                                <div class="profile-pic">
+                                    <img id="profileRasm" src="./images/totoy_bola.jpg" alt="">
+                                </div>
+                                <div class="profile-info">
+                                    <h2 id="nickname">17</h2>
+                                    <p id="phone_number">+998 95 035 26 08</p>
+                                    <p id="username">@Abduqodirr</p>
+                                </div>
+                            </div>
+                            <div class="menu-section">
+                                <ul>
+                                    <li><i class="icon">⚙️</i> My Account</li>
+                                    <li><i class="icon">🔔</i> Notifications and Sounds</li>
+                                    <li><i class="icon">🔒</i> Privacy and Security</li>
+                                    <li><i class="icon">💬</i> Chat Settings</li>
+                                    <li><i class="icon">📁</i> Folders</li>
+                                    <li><i class="icon">🔧</i> Advanced</li>
+                                    <li><i class="icon">🎙️</i> Speakers and Camera</li>
+                                    <li><i class="icon">🔋</i> Battery and Animations</li>
+                                    <li><i class="icon">🌐</i> Language</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-header-bottom">
+                    <h5>Archived Chats</h5>
+                </div>
+            </div>
+            <!-- Chat List -->
+            <div class="chat-list">
+                <div class="chat-item">
+                    <img src="./images/Telegram_2019_Logo.svg.webp" alt="Freelancer Uz" class="chat-icon">
+                    <div class="chat-info">
+                        <p class="chat-name">Telegram<img src="./images/32px-Twitter_Verified_Badge.svg.png" alt=""></p>
+                        <p class="chat-last-message">Welcome to out Telegram website</p>
+                    </div>
+                    <div class="chat-time">15:25</div>
+                </div>
+                <!-- Qo'shimcha chat-itemlar qo'shish mumkin -->
+            </div>
+
+            <div class="add-contact">
+                <button id="open"><img src="./images/add-a-contact-4.svg" alt=""></button>
+
+                <div class="modal-container" id="modal_container">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <h2>New Contact</h2>
+                            <button id="close"><img src="./images/211652_close_icon.svg" alt=""></button>
+                        </div>
+                        <form id="addContactForm">
+                            <label for="name">First Name <span class="required">*</span></label>
+                            <input type="text" id="name" placeholder="Enter first name" required>
+                            <label for="phone">Phone Number</label>
+                            <div class="phone-input">
+                                <div class="country-code">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg"
+                                        alt="Uzbekistan Flag">
+                                    <span>+998</span>
+                                </div>
+                                <input type="tel" id="phone" placeholder="00 0000000" required>
+                            </div>
+                            <button type="submit">Create Contact</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="main-chat">
+            <div class="chat-header">
+                <div class="chat-header-text">
+                    <div class="verified">
+                        <h2>Telegram</h2>
+                        <img id="verified" src="./images/32px-Twitter_Verified_Badge.svg.png" alt="verified">
+                    </div>
+                    <p id="status">online</p>
+                </div>
+                <div class="features">
+                    <img src="./images/find.svg" alt="">
+                    <img src="./images/more_vert.svg" alt="">
+                </div>
+            </div>
+            <div class="chat-body">
+                <div class="chat-body-start-message">
+                    <h4>No message here yet...</h4>
+                    <p>Send a message or click on the greeting below</p>
+                    <div class="gif"></div>
+                </div>
+
+            </div>
+
+            <div class="chat-footer">
+                <img src="./images/attach_file.svg" alt="">
+                <input type="text" placeholder="Write a message..." class="message-input" oninput="handleTyping(this)">
+                <div class="footer-icons">
+                    <button class="smile-btn">
+                        <img src="./images/smile.svg" alt="">
+                    </button>
+                    <button class="mic">
+                        <img src="./images/mic.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+    <script src="./index.js"></script>
+
+    <script>
+        socket.on('typing', (data) => {
+    const statusEl = document.getElementById('status');
+    statusEl.textContent = `${data.user} yozayapti...`;
+});
+
+socket.on('messages', (data) => {
+    const statusEl = document.getElementById('status');
+    statusEl.textContent = "online"; // Typing tugaganda yana "online" holatiga qaytadi
+    const cardBodyEl = document.querySelector('.card-body');
+    cardBodyEl.innerHTML = '';
+
+    data.forEach((ms) => {
+        if (ms.type == 'joined') {
+            cardBodyEl.insertAdjacentHTML(
+                'beforeend',
+                `
+            <div class="divider d-flex align-items-center mb-4">
+                <p class="text-center mx-3 mb-0" style="color: #a2aab7">
+                ${ms.message}
+                </p>
+            </div>`,
+            );
+        }
+
+        if (ms.type == 'message') {
+            if (localStorage.getItem('userId') != ms.userId) {
+                cardBodyEl.insertAdjacentHTML(
+                    'beforeend',
+                    `
+            <div class="d-flex flex-row justify-content-start">
+                <img
+                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                    alt="avatar 1"
+                    style="width: 45px; height: 100%"
+                />
+                <div>
+                    <p class="small p-2 ms-3 mb-1 rounded-3 bg-body-tertiary">
+                    ${ms.message}
+                    </p>
+                    <p class="small ms-3 mb-3 rounded-3 text-muted">${ms.createdAt} ${ms?.user?.name}</p>
+                </div>
+            </div>`,
+                );
+            } else {
+                cardBodyEl.insertAdjacentHTML(
+                    'beforeend',
+                    `
+            <div class="d-flex flex-row justify-content-end mb-4 pt-1">
+                <div>
+                    <p
+                        class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
+                    >
+                    ${ms.message}
+                    </p>
+                    <p
+                    class="small ms-3 mb-3 rounded-3 text-end text-muted px-3"
+                    >
+                    ${ms.createdAt} ${ms?.user?.name}
+                    </p>
+                </div>
+            </div>
+            `,
+                );
+            }
+        }
+    });
+});
+
+        socket.on('joined', (data) => {
+            localStorage.setItem('userId', data.id);
+        });
+
+        function handleJoinForm(e, el) {
+            e.preventDefault();
+            const name = el.name.value;
+            localStorage.setItem('user', name);
+            if (!name) {
+                return alert('Please enter your name');
+            }
+            socket.emit('joined', { user: name });
+        }
+
+        function handleTyping(e) {
+            socket.emit('typing', { user: localStorage.getItem('user') });
+        }
+
+        function handleMessage(e, el) {
+            e.preventDefault();
+            const message = e.target.message.value;
+            if (!message) {
+                return;
+            }
+            socket.emit('messages', {
+                message: message,
+                userId: localStorage.getItem('userId'),
+            });
+            el.message.value = '';
+        }
+    </script>
+</body>
+
+</html>

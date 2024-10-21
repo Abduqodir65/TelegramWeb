@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+
+<defs>
+</defs>
+<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+	<path d="M 45 90 c 24.853 0 45 -20.147 45 -45 C 90 20.147 69.853 0 45 0 S 0 20.147 0 45 C 0 69.853 20.147 90 45 90 z M 21.459 43.791 l 18.366 -18.366 c 0.668 -0.668 1.75 -0.668 2.418 0 l 6.055 6.055 c 0.668 0.668 0.668 1.751 0 2.418 l -5.111 5.11 l 24.144 0 c 0.944 0 1.71 0.766 1.71 1.71 v 8.563 c 0 0.944 -0.766 1.71 -1.71 1.71 l -24.145 0 l 5.111 5.111 c 0.668 0.668 0.668 1.751 0 2.418 l -6.055 6.055 c -0.668 0.668 -1.751 0.668 -2.418 0 L 21.459 46.209 C 20.791 45.541 20.791 44.458 21.459 43.791 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(91,160,208); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+</g>
+</svg>
